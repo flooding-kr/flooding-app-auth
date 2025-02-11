@@ -37,13 +37,6 @@ jobs:
       - name: Analyze project source
         run: flutter analyze
 
-      - name: Publish
-        uses: k-paxian/dart-package-publisher@master
-        with:
-          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
-          flutter: true
-          skipTests: true
-
       - name: Set timestamp
         id: timestamp
         run: echo "TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
