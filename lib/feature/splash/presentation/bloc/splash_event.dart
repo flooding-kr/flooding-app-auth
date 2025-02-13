@@ -2,6 +2,4 @@ part of 'splash_bloc.dart';
 
 abstract class SplashEvent {}
 
-class SplashInitEvent extends SplashEvent {}
-
-class SplashDisposeEvent extends SplashEvent {}
+class SplashToSignInEvent extends SplashEvent {}
