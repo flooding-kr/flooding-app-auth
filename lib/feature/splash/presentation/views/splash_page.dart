@@ -5,10 +5,18 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => SplashBloc(),
-      child: _Scaffold(
-        logo: _Logo(),
+    return BlocProvider<SplashBloc>(
+      create: (BuildContext context) =>
+          SplashBloc()..add(SplashToSignInEvent()),
+      child: BlocListener<SplashBloc, SplashState>(
+        listener: (BuildContext context, SplashState state) {
+          if (state is SplashDisposeState) {
+            context.go(AuthRouter.signInPath);
+          }
+        },
+        child: _Scaffold(
+          logo: _Logo(),
+        ),
       ),
     );
   }
