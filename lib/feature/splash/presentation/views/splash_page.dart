@@ -5,8 +5,11 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _Scaffold(
-      logo: _Logo(),
+    return BlocProvider(
+      create: (BuildContext context) => SplashBloc(),
+      child: _Scaffold(
+        logo: _Logo(),
+      ),
     );
   }
 }
