@@ -18,7 +18,7 @@ packages:
     source: hosted
     version: "2.12.0"
   bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: bloc
       sha256: "52c10575f4445c61dd9e0cafcc6356fdd827c4c64dd7945ef3c4105f6b6ac189"
@@ -73,6 +73,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.2"
+  flooding_app_auth:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "1.0.0+1"
   flooding_app_design_system:
     dependency: "direct main"
     description:
@@ -87,7 +94,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_bloc
       sha256: "153856bdaac302bbdc58a1d1403d50c40557254aa05eaeed40515d88a25a526b"
@@ -121,7 +128,7 @@ packages:
     source: sdk
     version: "0.0.0"
   go_router:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: go_router
       sha256: "04539267a740931c6d4479a10d466717ca5901c6fdfd3fcda09391bbb8ebd651"
