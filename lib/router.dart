@@ -17,10 +17,39 @@ class AuthRouter {
         initialLocation: splashPath,
         routes: [
           _goRoute(splashPath, SplashPage()),
-          _goRoute(signInPath, SignInPage()),
+          _goRoute(signInPath, SignInPage(), checkPrevious: true),
         ],
       );
 
-  static GoRoute _goRoute(String path, Widget view) =>
-      GoRoute(path: path, builder: (_, __) => view);
+  static GoRoute _goRoute(
+    String path,
+    Widget view, {
+    bool checkPrevious = false,
+  }) =>
+      GoRoute(
+        path: path,
+        pageBuilder: (context, state) {
+          final bool isFromSplash = state.extra == splashPath;
+
+          if (checkPrevious && isFromSplash) {
+            return CustomTransitionPage(
+              key: state.pageKey,
+              child: view,
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return FadeTransition(
+                  opacity: animation,
+                  child: child,
+                );
+              },
+            );
+          }
+
+          // 기본 전환 방식
+          return CupertinoPage(
+            key: state.pageKey,
+            child: view,
+          );
+        },
+      );
 }
