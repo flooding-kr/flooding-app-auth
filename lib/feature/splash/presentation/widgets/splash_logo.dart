@@ -1,15 +1,10 @@
 part of '../splash_presentation.dart';
 
-class _Logo extends StatefulWidget {
+class _Logo extends StatelessWidget {
   const _Logo();
 
   @override
-  State<_Logo> createState() => _LogoState();
-}
-
-class _LogoState extends State<_Logo> {
-  @override
   Widget build(BuildContext context) {
-    return FloodingIcon.logo();
+    return Hero(tag: 'logo', child: FloodingIcon.logo());
   }
 }

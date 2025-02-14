@@ -11,7 +11,7 @@ class SplashPage extends StatelessWidget {
       child: BlocListener<SplashBloc, SplashState>(
         listener: (BuildContext context, SplashState state) {
           if (state is SplashDisposeState) {
-            context.go(AuthRouter.signInPath);
+            context.go(AuthRouter.signInPath, extra: AuthRouter.splashPath);
           }
         },
         child: _Scaffold(
