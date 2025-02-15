@@ -17,10 +17,10 @@ class SignInPage extends StatelessWidget {
         color: FloodingColor.gray500,
       ),
       signUpTextButton: _SignUpTextButton(
-        onTap: () {},
+        onTap: () => context.go('/signUp'),
       ),
       findPasswordButton: _FindPasswordButton(
-        onTap: () {},
+        onTap: () => context.go('/findPassword'),
       ),
     );
   }
