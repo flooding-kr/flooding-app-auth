@@ -3,7 +3,7 @@ part of '../sign_up_presentation.dart';
 class SignUpCard extends StatelessWidget {
   final String title;
   final Widget content;
-  final void Function() onBackClick;
+  final VoidCallback onBackClick;
 
   const SignUpCard({
     super.key,
