@@ -23,9 +23,9 @@ class AuthRouter {
   static GoRouter get router => GoRouter(
         initialLocation: splashPath,
         routes: [
-          _goRoute(splashPath, SplashPage()),
-          _goRoute(signInPath, SignInPage(), checkPrevious: true),
-          _goRoute(signUpPath, SignUpPage()),
+          _goRoute(splashPath, SplashScreen()),
+          _goRoute(signInPath, SignInScreen(), checkPrevious: true),
+          _goRoute(signUpPath, SignUpScreen()),
         ],
       );
 

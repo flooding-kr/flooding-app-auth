@@ -6,6 +6,6 @@ import 'package:go_router/go_router.dart';
 
 import 'bloc/splash_bloc.dart';
 
-part './views/splash_page.dart';
-part './widgets/splash_scaffold.dart';
+part './views/splash_screen.dart';
+
 part './widgets/splash_logo.dart';
