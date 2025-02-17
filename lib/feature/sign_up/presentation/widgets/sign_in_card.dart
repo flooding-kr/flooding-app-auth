@@ -20,28 +20,21 @@ class SignUpCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(
-              onTap: onBackClick,
-              child: FloodingIcon.arrowLeft()
-          ),
+          GestureDetector(onTap: onBackClick, child: FloodingIcon.arrowLeft()),
           const SizedBox(height: 60),
-          _buildInputSection(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: FloodingTypography.body1SemiBold,
+              ),
+              const SizedBox(height: 36),
+              content,
+            ],
+          ),
         ],
       ),
-    );
-  }
-
-  Widget _buildInputSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: FloodingTypography.body1SemiBold,
-        ),
-        const SizedBox(height: 36),
-        content,
-      ],
     );
   }
 }
