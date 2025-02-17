@@ -5,11 +5,6 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SignUpCard(
-      title: '과나',
-      content: Container(),
-      onBackClick: () {},
-    ));
+    return const _NameScaffold();
   }
 }
