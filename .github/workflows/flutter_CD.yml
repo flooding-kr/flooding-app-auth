@@ -26,7 +26,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          flutter-version: 3.27.2
 
       - name: Checking Flutter Version
         run: flutter --version
@@ -36,6 +35,14 @@ jobs:
 
       - name: Analyze project source
         run: flutter analyze
+
+      - name: Build Test IOS
+        run: flutter build ios --release --no-codesign
+
+      - name: Build Test Android
+        run : |
+          flutter build apk
+          flutter build appbundle
 
       - name: Set timestamp
         id: timestamp
