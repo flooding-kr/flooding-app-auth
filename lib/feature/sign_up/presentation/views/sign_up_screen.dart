@@ -12,7 +12,11 @@ class SignUpScreen extends StatelessWidget {
         controller: pageController,
         physics: NeverScrollableScrollPhysics(),
         children: [
-          _NameScaffold(),
+          _NamePage(
+            onBackClick: context.pop,
+            onNextClick: _navigatorPage(1),
+            nameController: TextEditingController(),
+          ),
         ],
       ),
     );
