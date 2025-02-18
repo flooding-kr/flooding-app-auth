@@ -24,7 +24,11 @@ class SignUpScreen extends StatelessWidget {
             onNextClick: _navigatorPage(2),
             onAuthenticationClick: () {},
           ),
-
+          _PasswordPage(
+            nameController: TextEditingController(),
+            onBackClick: _navigatorPage(1),
+            onNextClick: _navigatorPage(3),
+          )
         ],
       ),
     );

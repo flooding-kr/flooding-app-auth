@@ -7,3 +7,4 @@ part 'views/sign_up_screen.dart';
 
 part 'widgets/page/_NamePage.dart';
 part 'widgets/page/_EmailPage.dart';
+part 'widgets/page/_PasswordPage.dart';
