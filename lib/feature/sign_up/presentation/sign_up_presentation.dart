@@ -9,3 +9,4 @@ part 'widgets/page/_NamePage.dart';
 part 'widgets/page/_EmailPage.dart';
 part 'widgets/page/_PasswordPage.dart';
 part 'widgets/page/_ClassPage.dart';
+part 'widgets/page/_SexPage.dart';

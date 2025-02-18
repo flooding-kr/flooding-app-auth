@@ -33,7 +33,14 @@ class SignUpScreen extends StatelessWidget {
             nameController: TextEditingController(),
             onBackClick: _navigatorPage(2),
             onNextClick: _navigatorPage(4),
-          )
+          ),
+          _SexPage(
+            sexType: SEX.female,
+            nameController: TextEditingController(),
+            onBackClick: () {},
+            onNextClick: () {},
+            onSexChange: (SEX) {},
+          ),
         ],
       ),
     );
