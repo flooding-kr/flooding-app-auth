@@ -1,7 +1,7 @@
 import 'package:flooding_app_design_system/flooding_app_design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-part 'views/sign_up_page.dart';
 part 'widgets/sign_in_card.dart';
 part 'views/sign_up_screen.dart';
 
