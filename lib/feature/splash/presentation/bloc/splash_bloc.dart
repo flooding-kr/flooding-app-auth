@@ -1,8 +1,4 @@
-import 'package:bloc/bloc.dart';
-
-part 'splash_event.dart';
-
-part 'splash_state.dart';
+part of '../splash_presentation.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc() : super(SplashInitState()) {
