@@ -1,14 +1,14 @@
 part of '../../sign_up_presentation.dart';
 
-class _ClassPage extends StatelessWidget {
+class _PasswordPage extends StatelessWidget {
 
-  final TextEditingController nameController;
+  final TextEditingController passwordController;
   final VoidCallback onBackClick;
   final VoidCallback onNextClick;
 
-  const _ClassPage({
+  const _PasswordPage({
     required this.onBackClick,
-    required this.nameController,
+    required this.passwordController,
     required this.onNextClick,
   });
 
@@ -20,7 +20,7 @@ class _ClassPage extends StatelessWidget {
           child: Column(
             children: [
               SignUpCard(
-                title: '기수, 반, 번호를 알려주세요',
+                title: '비밀번호를 입력해주세요',
                 content: Container(),
                 onBackClick: onBackClick,
               ),
