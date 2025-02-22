@@ -1,53 +1,86 @@
 part of '../sign_up_presentation.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
 
   static PageController pageController = PageController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final Map<String, String?> classController = {
+    'grade': null,
+    'class': null,
+    'number': null
+  };
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController sexController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: pageController,
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          _NamePage(
-            onBackClick: context.pop,
-            onNextClick: _navigatorPage(1),
-            nameController: TextEditingController(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => NameBloc(nameController)..add(NameEnterEvent()),
+        ),
+        BlocProvider(
+          create: (_) => EmailBloc(emailController)..add(EmailEnterEvent()),
+        ),
+        BlocProvider(
+          create: (_) => ClassBloc(classController),
+        )
+      ],
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: PageView(
+              controller: pageController,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                _NamePage(
+                  onBackClick: () => _navigatorPage(context, -1),
+                  onNextClick: () => _navigatorPage(context, 1),
+                  nameController: nameController,
+                ),
+                _EmailPage(
+                  authenticationCodeController: TextEditingController(),
+                  emailController: emailController,
+                  onBackClick: () => _navigatorPage(context, 0),
+                  onNextClick: () => _navigatorPage(context, 2),
+                  onAuthenticationClick: () {},
+                ),
+                _ClassPage(
+                  classController: classController,
+                  onBackClick: () => _navigatorPage(context, 1),
+                  onNextClick: () => _navigatorPage(context, 3),
+                ),
+                _PasswordPage(
+                  passwordController: passwordController,
+                  onBackClick: () => _navigatorPage(context, 2),
+                  onNextClick: () => _navigatorPage(context, 4),
+                ),
+                _SexPage(
+                  sexType: Sex.female,
+                  sexController: sexController,
+                  onBackClick: () {},
+                  onNextClick: () {},
+                  onSexChange: (Sex sex) {},
+                ),
+              ],
+            ),
           ),
-          _EmailPage(
-            authenticationCodeController: TextEditingController(),
-            emailController: TextEditingController(),
-            onBackClick: _navigatorPage(0),
-            onNextClick: _navigatorPage(2),
-            onAuthenticationClick: () {},
-          ),
-          _ClassPage(
-            nameController: TextEditingController(),
-            onBackClick: _navigatorPage(1),
-            onNextClick: _navigatorPage(3),
-          ),
-          _PasswordPage(
-            nameController: TextEditingController(),
-            onBackClick: _navigatorPage(2),
-            onNextClick: _navigatorPage(4),
-          ),
-          _SexPage(
-            sexType: SEX.female,
-            nameController: TextEditingController(),
-            onBackClick: () {},
-            onNextClick: () {},
-            onSexChange: (SEX) {},
-          ),
-        ],
+        ),
       ),
     );
   }
 
-  _navigatorPage(int index) {
-    pageController.animateToPage(index,
-        duration: Duration(milliseconds: 300), curve: Curves.ease);
+  void _navigatorPage(BuildContext context, int index) {
+    FocusScope.of(context).unfocus();
+    if (index == -1) {
+      Navigator.pop(context);
+    } else {
+      pageController.animateToPage(index,
+          duration: Duration(milliseconds: 300), curve: Curves.ease);
+    }
   }
 }
