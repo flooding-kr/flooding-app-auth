@@ -1,18 +1,23 @@
 part of '../../sign_up_presentation.dart';
 
-class _EmailPage extends StatelessWidget {
-  final TextEditingController emailController;
-  final TextEditingController authenticationCodeController;
+enum Sex {
+  male,
+  female,
+}
+
+class _SexPage extends StatelessWidget {
+  final TextEditingController sexController;
+  final Sex sexType;
   final VoidCallback onBackClick;
   final VoidCallback onNextClick;
-  final VoidCallback onAuthenticationClick;
+  final void Function(Sex) onSexChange;
 
-  const _EmailPage({
+  const _SexPage({
     required this.onBackClick,
-    required this.authenticationCodeController,
-    required this.emailController,
+    required this.sexType,
+    required this.sexController,
     required this.onNextClick,
-    required this.onAuthenticationClick,
+    required this.onSexChange,
   });
 
   @override
@@ -23,7 +28,7 @@ class _EmailPage extends StatelessWidget {
       child: Column(
         children: [
           SignUpCard(
-            title: '이메일을 알려주세요',
+            title: '성별을 알려주세요',
             content: Container(),
             onBackClick: onBackClick,
           ),
