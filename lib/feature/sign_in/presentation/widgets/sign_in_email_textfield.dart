@@ -8,8 +8,9 @@ class _EmailTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloodingTextField(
-        textFieldState: FloodingTextFieldState.email,
-        controller: controller,
-        hintText: '이메일을 입력해주세요');
+      textFieldState: FloodingTextFieldState.email,
+      controller: controller,
+      hintText: '이메일을 입력해주세요',
+    );
   }
 }

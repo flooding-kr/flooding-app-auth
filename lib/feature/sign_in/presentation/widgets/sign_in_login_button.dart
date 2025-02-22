@@ -14,7 +14,9 @@ class _LoginButton extends StatelessWidget {
     return FloodingDefaultButton(
       onTap: onTap,
       text: '확인',
+      textStyle: FloodingTypography.body3SemiBold,
       color: color,
+      padding: EdgeInsets.symmetric(vertical: 12.h),
     );
   }
 }

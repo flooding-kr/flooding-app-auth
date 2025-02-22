@@ -22,7 +22,8 @@ class SignInScreen extends StatelessWidget {
             _PasswordTextField(controller: passwordController),
             SizedBox(height: 80),
             _LoginButton(
-              onTap: emailController.text.isEmpty || passwordController.text.isEmpty
+              onTap: emailController.text.isEmpty ||
+                      passwordController.text.isEmpty
                   ? () {}
                   : () {},
               color: FloodingColor.gray500,
@@ -31,8 +32,14 @@ class SignInScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _SignUpTextButton(onTap: () => context.go('/signUp')),
-                _FindPasswordButton(onTap: () => context.go('/findPassword')),
+                _SignUpTextButton(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (builder) => SignUpScreen(),
+                          ),
+                        )),
+                _FindPasswordButton(onTap: () {}),
               ],
             ),
           ],

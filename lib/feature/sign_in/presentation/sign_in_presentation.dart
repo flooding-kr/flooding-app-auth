@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:flooding_app_auth/feature/sign_up/presentation/sign_up_presentation.dart';
 import 'package:flooding_app_design_system/flooding_app_design_system.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 part 'views/sign_in_screen.dart';
 
 part 'bloc/sign_in_state.dart';
