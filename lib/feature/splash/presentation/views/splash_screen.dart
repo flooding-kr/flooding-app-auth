@@ -7,11 +7,20 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<SplashBloc>(
       create: (BuildContext context) =>
-      SplashBloc()..add(SplashToSignInEvent()),
+          SplashBloc()..add(SplashToSignInEvent()),
       child: BlocListener<SplashBloc, SplashState>(
         listener: (BuildContext context, SplashState state) {
           if (state is SplashDisposeState) {
-            context.go(AuthRouter.signInPath, extra: AuthRouter.splashPath);
+            Navigator.pushAndRemoveUntil(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (_, __, ___) => SignInScreen(),
+                  transitionsBuilder: (_, a, __, c) => FadeTransition(
+                    opacity: a,
+                    child: c,
+                  ),
+                ),
+                (predicate) => false);
           }
         },
         child: Scaffold(
