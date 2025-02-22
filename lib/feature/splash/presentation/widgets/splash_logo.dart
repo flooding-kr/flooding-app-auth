@@ -5,6 +5,9 @@ class _Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(tag: 'logo', child: FloodingIcon.logo());
+    return Hero(
+      tag: 'logo',
+      child: FloodingIcon.logo(width: 226.w, height: 86.h),
+    );
   }
 }
