@@ -1,6 +1,7 @@
-import 'package:flooding_app_auth/router.dart';
+import 'package:flooding_app_auth/feature/splash/presentation/splash_presentation.dart';
 import 'package:flooding_app_design_system/flooding_app_design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,11 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: ThemeData(
-        scaffoldBackgroundColor: FloodingColor.gray100,
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        theme: ThemeData(
+          scaffoldBackgroundColor: FloodingColor.gray100,
+        ),
+        home: SplashScreen(),
       ),
-      routerConfig: AuthRouter.router
     );
   }
 }
