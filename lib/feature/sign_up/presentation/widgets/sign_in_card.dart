@@ -14,12 +14,12 @@ class SignUpCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
+    return Container(
+      decoration: BoxDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(onTap: onBackClick, child: FloodingIcon.arrowLeft()),
+          GestureDetector(onTap: onBackClick, child: FloodingIcon.arrowBack()),
           const SizedBox(height: 60),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
