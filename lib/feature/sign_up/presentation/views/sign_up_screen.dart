@@ -12,7 +12,7 @@ class SignUpScreen extends StatelessWidget {
     'number': null
   };
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController sexController = TextEditingController();
+  Sex? sex;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,13 @@ class SignUpScreen extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => ClassBloc(classController),
+        ),
+        BlocProvider(
+          create: (_) =>
+              PasswordBloc(passwordController)..add(PasswordEnterEvent()),
+        ),
+        BlocProvider(
+          create: (_) => SexBloc(sex),
         )
       ],
       child: Scaffold(
@@ -60,12 +67,11 @@ class SignUpScreen extends StatelessWidget {
                   onNextClick: () => _navigatorPage(context, 4),
                 ),
                 _SexPage(
-                  sexType: Sex.female,
-                  sexController: sexController,
-                  onBackClick: () {},
-                  onNextClick: () {},
-                  onSexChange: (Sex sex) {},
+                  sexType: sex,
+                  onBackClick: () => _navigatorPage(context, 3),
+                  onNextClick: () => _navigatorPage(context, 5),
                 ),
+                _CertificationNumberPage()
               ],
             ),
           ),
