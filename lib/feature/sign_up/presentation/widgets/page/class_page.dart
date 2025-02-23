@@ -24,43 +24,60 @@ class _ClassPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FloodingDropdownButton(
-                      onTap: (value) {
-                        context.read<ClassBloc>().classInfo['grade']  = value;                        context.read<ClassBloc>().add(ClassEnterEvent());
-                      },
-                      showList: ['7기', '8기', '9기', '10기'],
-                      defaultValue: '기수'),
+                    onTap: (value) {
+                      context.read<ClassBloc>().classInfo['grade'] = value;
+                      context.read<ClassBloc>().add(ClassEnterEvent());
+                    },
+                    showList: ['7기', '8기', '9기', '10기'],
+                    defaultValue:
+                        (context.read<ClassBloc>().classInfo['grade'] ?? '')
+                                .isEmpty
+                            ? '기수'
+                            : context.read<ClassBloc>().classInfo['grade']!,
+                  ),
                   FloodingDropdownButton(
-                      onTap: (value) {
-                        context.read<ClassBloc>().classInfo['class']  = value;
-                        context.read<ClassBloc>().add(ClassEnterEvent());
-                      },
-                      showList: ['1반', '2반', '3반', '4반'],
-                      defaultValue: '반'),
+                    onTap: (value) {
+                      context.read<ClassBloc>().classInfo['class'] = value;
+                      context.read<ClassBloc>().add(ClassEnterEvent());
+                    },
+                    showList: ['1반', '2반', '3반', '4반'],
+                    defaultValue:
+                        (context.read<ClassBloc>().classInfo['class'] ?? '')
+                                .isEmpty
+                            ? '반'
+                            : context.read<ClassBloc>().classInfo['class']!,
+                  ),
                   FloodingDropdownButton(
-                      onTap: (value) {
-                        context.read<ClassBloc>().classInfo['number']  = value;                        context.read<ClassBloc>().add(ClassEnterEvent());
-                      },
-                      showList: [
-                        '1번',
-                        '2번',
-                        '3번',
-                        '4번',
-                        '5번',
-                        '6번',
-                        '7번',
-                        '8번',
-                        '9번',
-                        '10번',
-                        '11번',
-                        '12번',
-                        '13번',
-                        '14번',
-                        '15번',
-                        '16번',
-                        '17번',
-                        '18번',
-                      ],
-                      defaultValue: '번호'),
+                    onTap: (value) {
+                      context.read<ClassBloc>().classInfo['number'] = value;
+                      context.read<ClassBloc>().add(ClassEnterEvent());
+                    },
+                    showList: [
+                      '1번',
+                      '2번',
+                      '3번',
+                      '4번',
+                      '5번',
+                      '6번',
+                      '7번',
+                      '8번',
+                      '9번',
+                      '10번',
+                      '11번',
+                      '12번',
+                      '13번',
+                      '14번',
+                      '15번',
+                      '16번',
+                      '17번',
+                      '18번',
+                    ],
+                    defaultValue:
+                        (context.read<ClassBloc>().classInfo['number'] ?? '')
+                                .isEmpty
+                            ? '번호'
+                            : context.read<ClassBloc>().classInfo['number']!,
+                  ),
                 ],
               ),
               onBackClick: onBackClick,
