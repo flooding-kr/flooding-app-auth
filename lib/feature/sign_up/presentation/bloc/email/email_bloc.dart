@@ -14,7 +14,7 @@ class EmailBloc extends Bloc<EmailEvent, EmailState> {
     add(EmailEnterEvent());
   }
 
-  String? _validateEmail(String? value) {
+  String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return '이메일을 입력하세요.';
     }
@@ -29,7 +29,7 @@ class EmailBloc extends Bloc<EmailEvent, EmailState> {
 
   // EmailController에 입력이 있을 때 enable, 없을 경우 disable
   void _handleEmailEnterEvent(EmailEvent event, Emitter<EmailState> emit) {
-    _validateEmail(controller.text) == null && controller.text.isNotEmpty
+    validateEmail(controller.text) == null && controller.text.isNotEmpty
         ? emit(CanAccessEmailState())
         : emit(DisableEmailState());
   }
