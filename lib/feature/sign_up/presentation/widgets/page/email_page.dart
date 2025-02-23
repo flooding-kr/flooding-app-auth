@@ -30,9 +30,13 @@ class _EmailPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: FloodingTextField(
-                        textFieldState: FloodingTextFieldState.email,
-                        controller: context.read<EmailBloc>().controller,
-                        hintText: '이메일을 입력해주세요'),
+                      textFieldState: FloodingTextFieldState.email,
+                      controller: context.read<EmailBloc>().controller,
+                      textStyle: FloodingTypography.body3Regular
+                          .copyWith(letterSpacing: 0),
+                      hintText: '이메일을 입력해주세요',
+                      validator: context.read<EmailBloc>().validateEmail,
+                    ),
                   ),
                   FloodingDefaultButton(
                     onTap: state is CanAccessEmailState

@@ -28,6 +28,8 @@ class _NamePage extends StatelessWidget {
             SignUpCard(
               title: '이름을 알려주세요',
               content: FloodingTextField(
+                textStyle:
+                    FloodingTypography.body3Regular.copyWith(letterSpacing: 0),
                 textFieldState: FloodingTextFieldState.basic,
                 controller: context.read<NameBloc>().controller,
                 validator: nameValidator,
