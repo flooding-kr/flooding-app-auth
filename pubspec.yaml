@@ -39,6 +39,7 @@ dependencies:
   flooding_app_design_system: ^1.0.0
   flutter_keyboard_visibility: ^6.0.0
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.17
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,9 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+  assets:
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
